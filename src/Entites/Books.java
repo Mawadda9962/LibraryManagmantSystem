@@ -27,5 +27,8 @@ public class Books extends LibraryItems {
         this.isbn = isbn;
     }
 
+//    public static void getDetails(){
+//        System.out.println("Book Id" + );
+//    }
 
 }

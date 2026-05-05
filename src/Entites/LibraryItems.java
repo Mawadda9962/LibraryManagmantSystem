@@ -1,6 +1,8 @@
 package Entites;
 
-public class LibraryItems {
+import Behaviours.Borrowable;
+
+public class LibraryItems implements Borrowable {
     private String ID;
     private String Tittle;
     private boolean Status;
@@ -36,6 +38,18 @@ public class LibraryItems {
 
 
 
+
+    }
+
+    @Override
+    public void checkOut() {
+        if (!Status){
+            System.out.println("Already Checked out!");
+        }
+    }
+
+    @Override
+    public void returnItem() {
 
     }
 }
