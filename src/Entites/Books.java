@@ -1,14 +1,11 @@
 package Entites;
 
-public class Books {
+public class Books extends LibraryItems {
 
     private String Author;
     private String isbn;
 
-    public Books(String author, String isbn) {
-        Author = author;
-        this.isbn = isbn;
-    }
+
 
     public String getAuthor() {
         return Author;
