@@ -1,7 +1,7 @@
 package Behaviours;
 
 public interface Borrowable {
-    void checkOut();
-    void returnItem();
+    boolean checkOut();
+    boolean returnItem();
 
 }
