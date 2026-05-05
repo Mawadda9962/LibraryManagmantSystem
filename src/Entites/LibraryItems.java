@@ -46,6 +46,7 @@ public class LibraryItems implements Borrowable {
     public boolean checkOut() {
         if (Status == true){
             System.out.println(Constants.ALREADY_CHECKED_OUT);
+            return true;
 
         }
         this.Status = false;
@@ -54,7 +55,12 @@ public class LibraryItems implements Borrowable {
 
     @Override
     public boolean returnItem() {
-        if ()
+        if (Status == false){
+            System.out.println(Constants.NOT_CHECKED_OUT);
+            return true;
+        }
+        this.Status =true;
+        return false;
 
     }
 }
