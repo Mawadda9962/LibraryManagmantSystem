@@ -31,6 +31,8 @@ public class LibraryItemService extends LibraryItems{
         if(type.equalsIgnoreCase("book")){
             System.out.println("please enter the author: ");
             String author = scanner.nextLine();
+            System.out.println("Please Enter the ISBM: ");
+            String isbn = scanner.nextLine();
         }
 
     }
