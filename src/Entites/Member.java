@@ -46,4 +46,14 @@ public class Member {
     public void setBorrowItem(List borrowItem) {
         this.borrowItem = borrowItem;
     }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "ID='" + ID + '\'' +
+                ", name='" + name + '\'' +
+                ", address=" + address +
+                ", borrowItem=" + borrowItem +
+                '}';
+    }
 }

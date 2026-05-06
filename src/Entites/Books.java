@@ -1,6 +1,10 @@
 package Entites;
 
+import java.util.Scanner;
+
 public class Books extends LibraryItems {
+
+    Scanner sr = new Scanner(System.in);
 
     private String Author;
     private String isbn;
@@ -27,8 +31,36 @@ public class Books extends LibraryItems {
         this.isbn = isbn;
     }
 
-//    public static void getDetails(){
-//        System.out.println("Book Id" + );
-//    }
+    @Override
+    public String toString() {
+        return "Books{" +
+                "Author='" + Author + '\'' +
+                ", isbn='" + isbn + '\'' +
+                '}';
+    }
+
+    public void getDetails(){
+    System.out.println("Book Id" + getID() );
+    System.out.println("");
+
+
+//        System.out.println("Enter item type (Book, Magazine");
+//        String itemType = sr.nextLine();
+//        if (itemType.equalsIgnoreCase("Book")){
+//            System.out.println("Enter Arthur name: ");
+//            String AutherName = sr.nextLine();
+//            setAuthor(AutherName);
+//            System.out.println("Enter Isbn: ");
+//            String BookIsbn = sr.next();
+//            setIsbn(isbn);
+//
+//        }else {
+//
+//        }
+       }
+
+
 
 }
+
+

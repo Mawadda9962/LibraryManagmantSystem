@@ -26,4 +26,12 @@ public class Magazine {
 
 
     }
+
+    @Override
+    public String toString() {
+        return "Magazine{" +
+                "issueNumber='" + issueNumber + '\'' +
+                ", publisher='" + publisher + '\'' +
+                '}';
+    }
 }

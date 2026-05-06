@@ -9,26 +9,32 @@ public class LibraryItems implements Borrowable {
     private boolean Status;
 
     public String getID() {
+
         return ID;
     }
 
     public void setID(String ID) {
+
         this.ID = ID;
     }
 
     public String getTittle() {
+
         return Tittle;
     }
 
     public void setTittle(String tittle) {
+
         Tittle = tittle;
     }
 
     public boolean isStatus() {
+
         return Status;
     }
 
     public void setStatus(boolean status) {
+
         Status = status;
     }
 
@@ -41,6 +47,17 @@ public class LibraryItems implements Borrowable {
 
 
     }
+
+
+    @Override
+    public String toString() {
+        return "LibraryItems{" +
+                "ID='" + ID + '\'' +
+                ", Tittle='" + Tittle + '\'' +
+                ", Status=" + Status +
+                '}';
+    }
+
 
     @Override
     public boolean checkOut() {
