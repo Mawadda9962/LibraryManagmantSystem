@@ -54,12 +54,16 @@ public class LibraryItemService{
 
     }
 
-    public boolean findItemById(){
+    public void findItemById(){
         System.out.println("Please Enter the item ID that to find: ");
         String searchById = scanner.nextLine();
 
         for (int i = 0; i < LibraryItems.size(); i++){
-            int item = LibraryItems.size();
+            LibraryItems item = LibraryItems.get(i);
+
+            if (item.getID().equalsIgnoreCase(searchById)){
+                System.out.println(item.getDetails());
+            }
         }
     }
 

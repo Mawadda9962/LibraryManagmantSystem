@@ -1,7 +1,6 @@
 package Entites;
 
 import Behaviours.Borrowable;
-import Constant.Constants;
 
 public class LibraryItems implements Borrowable {
     private String ID;
@@ -48,8 +47,6 @@ public class LibraryItems implements Borrowable {
         Status = status;
 
 
-
-
     }
 
 
@@ -63,25 +60,8 @@ public class LibraryItems implements Borrowable {
     }
 
 
-    @Override
-    public boolean checkOut() {
-        if (Status == true){
-            System.out.println(Constants.ALREADY_CHECKED_OUT);
-            return true;
-
-        }
-        this.Status = false;
-        return true;
-    }
-
-    @Override
-    public boolean returnItem() {
-        if (Status == false){
-            System.out.println(Constants.NOT_CHECKED_OUT);
-            return true;
-        }
-        this.Status =true;
-        return false;
-
+    public void getDetails() {
+        System.out.println("Item Title: " + getTittle());
+        System.out.println("Item ID: " + getID());
     }
 }

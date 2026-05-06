@@ -39,7 +39,7 @@ public class Books extends LibraryItems {
                 '}';
     }
 
-    public void getDetails(){
+    public boolean getDetails(){
     System.out.println("Book Id" + getID() );
     System.out.println("");
 
@@ -57,7 +57,8 @@ public class Books extends LibraryItems {
 //        }else {
 //
 //        }
-       }
+        return false;
+    }
 
 
 
