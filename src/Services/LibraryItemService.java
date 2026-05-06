@@ -71,7 +71,7 @@ public class LibraryItemService{
     }
 
 public String findItemThatContain(){
-    System.out.println("Please mention some details of the item: ");
+    System.out.println("Please Enter the keyWord to find the item: ");
     String Searching = scanner.nextLine();
 
     for (int i = 0; i < LibraryItems.size(); i++){
@@ -83,6 +83,15 @@ public String findItemThatContain(){
     return Searching;
     }
 
-public List
+public List<LibraryItems> getLibraryItems(){
+        List<LibraryItems> available = new ArrayList<>();
+        for (int i = 0; i < LibraryItems.size(); i++){
+            if (LibraryItems.get(i).isAvailable()){
+                available.add(LibraryItems.get(i));
+
+            }
+        }
+        return available;
+   }
 
 }

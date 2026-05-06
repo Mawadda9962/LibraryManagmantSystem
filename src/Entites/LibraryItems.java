@@ -75,4 +75,8 @@ public class LibraryItems implements Borrowable {
     public boolean returnItem() {
         return false;
     }
+
+    public boolean isAvailable() {
+        return true;
+    }
 }
