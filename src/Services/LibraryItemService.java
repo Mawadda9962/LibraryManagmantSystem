@@ -13,7 +13,7 @@ public class LibraryItemService{
 
     Scanner scanner = new Scanner(System.in);
 
-    public LibraryItems addItem() {
+    public Object addItem() {
 
         System.out.println("Adding New Item");
         System.out.println("Please Enter Item ID: ");
@@ -41,7 +41,22 @@ public class LibraryItemService{
 
     }
 
+    public List<LibraryItems> addNewItem(){
+        Boolean contine = true;
+        while (contine){
+            LibraryItems.add((LibraryItems) addItem());
+            System.out.println("Enter q to exit");
+            if(scanner.nextLine().equalsIgnoreCase("q")){
+                contine = false;
+            }
+        }
+        return LibraryItems;
 
+    }
+
+    public boolean findItemById(){
+        System.out.println("Please Enter the item ID that ");
+    }
 
 
 
