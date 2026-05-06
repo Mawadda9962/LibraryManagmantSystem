@@ -9,10 +9,10 @@ public class Books extends LibraryItems {
     private String Author;
     private String isbn;
 
-    public Books() {
+    public Books(String newItemId, String itemTitle, String author, String isbn) {
         super(ID, tittle, status);
         Author = author;
-        this.isbn = isbn;
+        this.isbn = this.isbn;
     }
 
     public String getAuthor() {

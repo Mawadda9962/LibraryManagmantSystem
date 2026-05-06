@@ -8,15 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class LibraryItemService extends LibraryItems{
+public class LibraryItemService{
     static List<LibraryItems> LibraryItems = new ArrayList<>();
-    LibraryItems libraryItems = new LibraryItems();
-    Books books = new Books();
-    Magazine magazine = new Magazine();
 
     Scanner scanner = new Scanner(System.in);
 
-    public LibraryItems addItem(){
+    public LibraryItems addItem() {
 
         System.out.println("Adding New Item");
         System.out.println("Please Enter Item ID: ");
@@ -28,15 +25,25 @@ public class LibraryItemService extends LibraryItems{
         System.out.println("Please enter the item type: ");
         String type = scanner.nextLine();
 
-        if(type.equalsIgnoreCase("book")){
+        if (type.equalsIgnoreCase("book")) {
             System.out.println("please enter the author: ");
             String author = scanner.nextLine();
             System.out.println("Please Enter the ISBM: ");
             String isbn = scanner.nextLine();
-            return new Books(newItemId, itemTitle,author,isbn);
+            return new Books(newItemId, itemTitle, author, isbn);
+        } else {
+            System.out.println("Please Enter the issue number: ");
+            String issueNumber = scanner.nextLine();
+            System.out.println("Please enter the publisher");
+            String publisher = scanner.nextLine();
+            return new Magazine(newItemId, itemTitle, issueNumber, publisher);
         }
 
     }
+
+
+
+
 
 
 }

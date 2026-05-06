@@ -20,9 +20,9 @@ public class Magazine {
         this.publisher = publisher;
     }
 
-    public Magazine() {
-        this.issueNumber = issueNumber;
-        this.publisher = publisher;
+    public Magazine(String newItemId, String itemTitle, String issueNumber, String publisher) {
+        this.issueNumber = this.issueNumber;
+        this.publisher = this.publisher;
 
 
     }
