@@ -9,6 +9,12 @@ public class Library {
     List<Member> members = new ArrayList<>();
     List<LibraryItems> libraryItems = new ArrayList<>();
 
+    public Library(String libraryCode, String libraryName, List<Member> members, List<LibraryItems> libraryItems) {
+        this.libraryCode = libraryCode;
+        this.libraryName = libraryName;
+        this.members = members;
+        this.libraryItems = libraryItems;
+    }
 
 
 }
