@@ -60,8 +60,19 @@ public class LibraryItems implements Borrowable {
     }
 
 
-    public void getDetails() {
+    public boolean getDetails() {
         System.out.println("Item Title: " + getTittle());
         System.out.println("Item ID: " + getID());
+        return false;
+    }
+
+    @Override
+    public boolean checkOut() {
+        return false;
+    }
+
+    @Override
+    public boolean returnItem() {
+        return false;
     }
 }
