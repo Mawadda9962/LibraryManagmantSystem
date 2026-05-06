@@ -33,6 +33,7 @@ public class LibraryItemService extends LibraryItems{
             String author = scanner.nextLine();
             System.out.println("Please Enter the ISBM: ");
             String isbn = scanner.nextLine();
+            return new Books(newItemId, itemTitle,author,isbn);
         }
 
     }
