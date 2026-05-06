@@ -56,6 +56,11 @@ public class LibraryItemService{
 
     public boolean findItemById(){
         System.out.println("Please Enter the item ID that to find: ");
+        String searchById = scanner.nextLine();
+
+        for (int i = 0; i < LibraryItems.size(); i++){
+            int item = LibraryItems.size();
+        }
     }
 
 
