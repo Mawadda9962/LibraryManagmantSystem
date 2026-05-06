@@ -70,7 +70,19 @@ public class LibraryItemService{
         return false;
     }
 
-p
+public String findItemThatContain(){
+    System.out.println("Please mention some details of the item: ");
+    String Searching = scanner.nextLine();
+
+    for (int i = 0; i < LibraryItems.size(); i++){
+        LibraryItems item = LibraryItems.get(i);
+
+        if (item.getTittle().contains(Searching));
+        System.out.println(item.getDetails());
+       }
+    return Searching;
+    }
+
 
 
 }
