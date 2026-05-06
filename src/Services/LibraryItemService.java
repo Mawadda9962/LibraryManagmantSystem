@@ -55,7 +55,7 @@ public class LibraryItemService{
     }
 
     public boolean findItemById(){
-        System.out.println("Please Enter the item ID that ");
+        System.out.println("Please Enter the item ID that to find: ");
     }
 
 
