@@ -20,7 +20,7 @@ public class Magazine {
         this.publisher = publisher;
     }
 
-    public Magazine(String issueNumber, String publisher) {
+    public Magazine() {
         this.issueNumber = issueNumber;
         this.publisher = publisher;
 

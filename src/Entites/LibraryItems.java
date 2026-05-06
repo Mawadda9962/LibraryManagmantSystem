@@ -8,6 +8,10 @@ public class LibraryItems implements Borrowable {
     private String Tittle;
     private boolean Status;
 
+    public LibraryItems() {
+
+    }
+
     public String getID() {
 
         return ID;
