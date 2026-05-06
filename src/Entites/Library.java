@@ -47,5 +47,16 @@ public class Library {
     public void setLibraryItems(List<LibraryItems> libraryItems) {
         this.libraryItems = libraryItems;
     }
-    //
+
+    @Override
+    public String toString() {
+        return "Library{" +
+                "libraryCode='" + libraryCode + '\'' +
+                ", libraryName='" + libraryName + '\'' +
+                ", members=" + members +
+                ", libraryItems=" + libraryItems +
+                '}';
+    }
+
+
 }
