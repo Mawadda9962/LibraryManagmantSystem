@@ -66,7 +66,6 @@ public class LibraryItemService {
         }
     }
 
-    // ─── Display Available Items ──────────────────────────────────
 
     public void displayAvailableItems() {
         System.out.println("\n===== Available Items =====");
