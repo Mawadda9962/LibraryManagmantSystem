@@ -53,8 +53,6 @@ public class LibraryItemService {
         return results;
     }
 
-    // ─── Display All Items ────────────────────────────────────────
-
     public void displayAllItems() {
         if (library.getLibraryItems().isEmpty()) {
             System.out.println("No items in the library.");
