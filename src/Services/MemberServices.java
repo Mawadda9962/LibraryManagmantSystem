@@ -90,7 +90,6 @@ public class MemberServices {
         }
     }
 
-    // ─── Count ────────────────────────────────────────────────────
 
     public int getTotalMemberCount() {
         return library.getMembers().size();
