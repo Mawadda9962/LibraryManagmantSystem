@@ -81,7 +81,6 @@ public class LibraryItemService {
         }
     }
 
-    // ─── Update Item Status ───────────────────────────────────────
 
     public void updateItemStatus(String itemId, boolean status) {
         LibraryItems item = findItemById(itemId);
