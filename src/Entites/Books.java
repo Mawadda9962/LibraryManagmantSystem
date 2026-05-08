@@ -9,10 +9,25 @@ public class Books extends LibraryItems {
     private String Author;
     private String isbn;
 
-    public Books(String newItemId, String itemTitle, String author, String isbn) {
-        super(ID, tittle, status);
+    public Books(Scanner sr, String author, String isbn) {
+        this.sr = sr;
         Author = author;
-        this.isbn = this.isbn;
+        this.isbn = isbn;
+    }
+
+    public Books(String ID, String tittle, boolean status, Scanner sr, String author, String isbn) {
+        super(ID, tittle, status);
+        this.sr = sr;
+        Author = author;
+        this.isbn = isbn;
+    }
+
+    public Scanner getSr() {
+        return sr;
+    }
+
+    public void setSr(Scanner sr) {
+        this.sr = sr;
     }
 
     public String getAuthor() {
@@ -34,34 +49,11 @@ public class Books extends LibraryItems {
     @Override
     public String toString() {
         return "Books{" +
-                "Author='" + Author + '\'' +
+                "sr=" + sr +
+                ", Author='" + Author + '\'' +
                 ", isbn='" + isbn + '\'' +
                 '}';
     }
-
-    public boolean getDetails(){
-    System.out.println("Book Id" + getID() );
-    System.out.println("");
-
-
-//        System.out.println("Enter item type (Book, Magazine");
-//        String itemType = sr.nextLine();
-//        if (itemType.equalsIgnoreCase("Book")){
-//            System.out.println("Enter Arthur name: ");
-//            String AutherName = sr.nextLine();
-//            setAuthor(AutherName);
-//            System.out.println("Enter Isbn: ");
-//            String BookIsbn = sr.next();
-//            setIsbn(isbn);
-//
-//        }else {
-//
-//        }
-        return false;
-    }
-
-
-
 }
 
 

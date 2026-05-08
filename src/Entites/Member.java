@@ -6,13 +6,11 @@ public class Member {
     private String ID;
     private String name;
     private Address address;
-    private List borrowItem;
 
-    public Member(String ID, String name, Address address, List borrowItem) {
+    public Member(String ID, String name, Address address) {
         this.ID = ID;
         this.name = name;
         this.address = address;
-        this.borrowItem = borrowItem;
     }
 
     public String getID() {
@@ -39,13 +37,7 @@ public class Member {
         this.address = address;
     }
 
-    public List getBorrowItem() {
-        return borrowItem;
-    }
 
-    public void setBorrowItem(List borrowItem) {
-        this.borrowItem = borrowItem;
-    }
 
     @Override
     public String toString() {
@@ -53,7 +45,6 @@ public class Member {
                 "ID='" + ID + '\'' +
                 ", name='" + name + '\'' +
                 ", address=" + address +
-                ", borrowItem=" + borrowItem +
                 '}';
     }
 }
