@@ -177,14 +177,22 @@ public class Main {
         scanner.nextLine();
 
         switch (option) {
-            case 1 -> { addBookMenu();      showMainMenu(); }
-            case 2 -> { addMagazineMenu();  showMainMenu(); }
-            case 3 -> { listItemsMenu();    showMainMenu(); }
-            case 4 -> { searchTitleMenu();  showMainMenu(); }
-            case 5 -> { addMemberMenu();    showMainMenu(); }
-            case 6 -> { listMembersMenu();  showMainMenu(); }
-            case 7 -> { borrowItemMenu();   showMainMenu(); }
-            case 8 -> { returnItemMenu();   showMainMenu(); }
+            case 1 -> { addBookMenu();
+                showMainMenu(); }
+            case 2 -> { addMagazineMenu();
+                showMainMenu(); }
+            case 3 -> { listItemsMenu();
+                showMainMenu(); }
+            case 4 -> { searchTitleMenu();
+                showMainMenu(); }
+            case 5 -> { addMemberMenu();
+                showMainMenu(); }
+            case 6 -> { listMembersMenu();
+                showMainMenu(); }
+            case 7 -> { borrowItemMenu();
+                showMainMenu(); }
+            case 8 -> { returnItemMenu();
+                showMainMenu(); }
             case 9 ->   System.out.println("Goodbye!");
             default -> { System.out.println("Select a choice from the list"); showMainMenu(); }
         }
