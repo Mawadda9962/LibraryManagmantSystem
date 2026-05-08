@@ -41,7 +41,6 @@ public class MemberServices {
         return null;
     }
 
-    // ─── Find Members by Name ─────────────────────────────────────
 
     public List<Member> findMembersByName(String name) {
         List<Member> results = new ArrayList<>();
