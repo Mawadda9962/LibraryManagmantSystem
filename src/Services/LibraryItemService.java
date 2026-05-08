@@ -20,7 +20,7 @@ public class LibraryItemService {
         library.getLibraryItems().add(item);
         System.out.println("Item added successfully: " + item.getTittle());
     }
-,
+
     public boolean removeItem(String itemId) {
         LibraryItems found = findItemById(itemId);
         if (found != null) {
@@ -32,7 +32,6 @@ public class LibraryItemService {
         return false;
     }
 
-    // ─── Search by ID ─────────────────────────────────────────────
 
     public LibraryItems findItemById(String itemId) {
         for (LibraryItems item : library.getLibraryItems()) {
