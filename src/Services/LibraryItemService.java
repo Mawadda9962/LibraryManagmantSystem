@@ -42,7 +42,6 @@ public class LibraryItemService {
         return null;
     }
 
-    // ─── Search by Title ──────────────────────────────────────────
 
     public List<LibraryItems> findItemsByTitle(String title) {
         List<LibraryItems> results = new ArrayList<>();
