@@ -15,14 +15,11 @@ public class MemberServices {
         this.library = library;
     }
 
-    // ─── Add Member ───────────────────────────────────────────────
 
     public void addMember(Member member) {
         library.getMembers().add(member);
         System.out.println("Member registered: " + member.getName() + " (ID: " + member.getID() + ")");
     }
-
-    // ─── Remove Member by ID ──────────────────────────────────────
 
     public boolean removeMember(String memberId) {
         Member found = findMemberById(memberId);
