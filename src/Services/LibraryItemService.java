@@ -93,8 +93,6 @@ public class LibraryItemService {
         }
     }
 
-    // ─── Count ────────────────────────────────────────────────────
-
     public int getTotalItemCount() {
         return library.getLibraryItems().size();
     }
