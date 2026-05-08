@@ -67,11 +67,8 @@ public class MemberServices {
                 System.out.println("Address : " + addr.getStreet() + ", "
                         + addr.getCity() + ", " + addr.getPostalCode());
             }
-            System.out.println("------------------------------");
         }
     }
-
-    // ─── Update Member Info ───────────────────────────────────────
 
     public void updateMemberName(String memberId, String newName) {
         Member member = findMemberById(memberId);
