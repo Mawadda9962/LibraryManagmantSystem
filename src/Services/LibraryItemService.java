@@ -1,97 +1,107 @@
 package Services;
 
 import Entites.Books;
+import Entites.Library;
 import Entites.LibraryItems;
 import Entites.Magazine;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-public class LibraryItemService{
-    static List<LibraryItems> LibraryItems = new ArrayList<>();
+public class LibraryItemService {
 
-    Scanner scanner = new Scanner(System.in);
+    private Library library;
 
-    public Object addItem() {
-
-        System.out.println("Adding New Item");
-        System.out.println("Please Enter Item ID: ");
-        String newItemId = scanner.nextLine();
-
-        System.out.println("Please Enter the item title: ");
-        String itemTitle = scanner.nextLine();
-
-        System.out.println("Please enter the item type: ");
-        String type = scanner.nextLine();
-
-        if (type.equalsIgnoreCase("book")) {
-            System.out.println("please enter the author: ");
-            String author = scanner.nextLine();
-            System.out.println("Please Enter the ISBM: ");
-            String isbn = scanner.nextLine();
-            return new Books(newItemId, itemTitle, author, isbn);
-        } else {
-            System.out.println("Please Enter the issue number: ");
-            String issueNumber = scanner.nextLine();
-            System.out.println("Please enter the publisher");
-            String publisher = scanner.nextLine();
-            return new Magazine(newItemId, itemTitle, issueNumber, publisher);
-        }
-
+    public LibraryItemService(Library library) {
+        this.library = library;
     }
 
-    public List<LibraryItems> addNewItem(){
-        Boolean contine = true;
-        while (contine){
-            LibraryItems.add((LibraryItems) addItem());
-            System.out.println("Enter q to exit");
-            if(scanner.nextLine().equalsIgnoreCase("q")){
-                contine = false;
-            }
-        }
-        return LibraryItems;
-
+    public void addItem(LibraryItems item) {
+        library.getLibraryItems().add(item);
+        System.out.println("Item added successfully: " + item.getTittle());
     }
 
-    public Boolean findItemById(){
-        System.out.println("Please Enter the item ID that to find: ");
-        String searchById = scanner.nextLine();
-
-        for (int i = 0; i < LibraryItems.size(); i++){
-            LibraryItems item = LibraryItems.get(i);
-
-            if (item.getID().equalsIgnoreCase(searchById)){
-                System.out.println(item.getDetails());
-                return true;
-            }
+    public boolean removeItem(String itemId) {
+        LibraryItems found = findItemById(itemId);
+        if (found != null) {
+            library.getLibraryItems().remove(found);
+            System.out.println("Item removed: " + found.getTittle());
+            return true;
         }
-        System.out.println("Item not found: ");
+        System.out.println("Item not found with ID: " + itemId);
         return false;
     }
 
-public String findItemThatContain(){
-    System.out.println("Please Enter the keyWord to find the item: ");
-    String Searching = scanner.nextLine();
+    // ─── Search by ID ─────────────────────────────────────────────
 
-    for (int i = 0; i < LibraryItems.size(); i++){
-        LibraryItems item = LibraryItems.get(i);
-
-        if (item.getTittle().contains(Searching));
-        System.out.println(item.getDetails());
-       }
-    return Searching;
-    }
-
-public List<LibraryItems> getLibraryItems(){
-        List<LibraryItems> available = new ArrayList<>();
-        for (int i = 0; i < LibraryItems.size(); i++){
-            if (LibraryItems.get(i).isAvailable()){
-                available.add(LibraryItems.get(i));
-
+    public LibraryItems findItemById(String itemId) {
+        for (LibraryItems item : library.getLibraryItems()) {
+            if (item.getID().equalsIgnoreCase(itemId)) {
+                return item;
             }
         }
-        return available;
-   }
+        return null;
+    }
 
+    // ─── Search by Title ──────────────────────────────────────────
+
+    public List<LibraryItems> findItemsByTitle(String title) {
+        List<LibraryItems> results = new ArrayList<>();
+        for (LibraryItems item : library.getLibraryItems()) {
+            if (item.getTittle().toLowerCase().contains(title.toLowerCase())) {
+                results.add(item);
+            }
+        }
+        return results;
+    }
+
+    // ─── Display All Items ────────────────────────────────────────
+
+    public void displayAllItems() {
+        if (library.getLibraryItems().isEmpty()) {
+            System.out.println("No items in the library.");
+            return;
+        }
+        System.out.println("\n===== Library Items =====");
+        for (LibraryItems item : library.getLibraryItems()) {
+            System.out.println("ID      : " + item.getID());
+            System.out.println("Title   : " + item.getTittle());
+            System.out.println("Status  : " + (item.isStatus() ? "Available" : "Checked Out"));
+        }
+    }
+
+    // ─── Display Available Items ──────────────────────────────────
+
+    public void displayAvailableItems() {
+        System.out.println("\n===== Available Items =====");
+        boolean found = false;
+        for (LibraryItems item : library.getLibraryItems()) {
+            if (item.isStatus()) {
+                System.out.println("ID: " + item.getID() + " | Title: " + item.getTittle());
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No items are currently available.");
+        }
+    }
+
+    // ─── Update Item Status ───────────────────────────────────────
+
+    public void updateItemStatus(String itemId, boolean status) {
+        LibraryItems item = findItemById(itemId);
+        if (item != null) {
+            item.setStatus(status);
+            System.out.println("Status updated for: " + item.getTittle()
+                    + " → " + (status ? "Available" : "Checked Out"));
+        } else {
+            System.out.println("Item not found with ID: " + itemId);
+        }
+    }
+
+    // ─── Count ────────────────────────────────────────────────────
+
+    public int getTotalItemCount() {
+        return library.getLibraryItems().size();
+    }
 }
