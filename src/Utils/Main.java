@@ -170,4 +170,107 @@ public class Main {
             }
         }
     }
+
+    static void showMainMenu() {
+        System.out.println(MenuMessages.MAIN_MENU_MESSAGE);
+        int option = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (option) {
+            case 1 -> { addBookMenu();      showMainMenu(); }
+            case 2 -> { addMagazineMenu();  showMainMenu(); }
+            case 3 -> { listItemsMenu();    showMainMenu(); }
+            case 4 -> { searchTitleMenu();  showMainMenu(); }
+            case 5 -> { addMemberMenu();    showMainMenu(); }
+            case 6 -> { listMembersMenu();  showMainMenu(); }
+            case 7 -> { borrowItemMenu();   showMainMenu(); }
+            case 8 -> { returnItemMenu();   showMainMenu(); }
+            case 9 ->   System.out.println("Goodbye!");
+            default -> { System.out.println("Select a choice from the list"); showMainMenu(); }
+        }
+    }
+
+    static void addBookMenu() {
+        System.out.println("Enter Book ID   : ");
+        String id = scanner.nextLine().trim();
+        System.out.println("Enter Title     : ");
+        String title = scanner.nextLine().trim();
+        System.out.println("Enter Author    : ");
+        String author = scanner.nextLine().trim();
+        System.out.println("Enter ISBN      : ");
+        String isbn = scanner.nextLine().trim();
+        libraryItemService.addItem(new Books(id, title, true, scanner, author, isbn));
+        System.out.println("Enter E to exit or any key to add another:");
+        if (!scanner.nextLine().equalsIgnoreCase("e")) addBookMenu();
+    }
+
+    static void addMagazineMenu() {
+        System.out.println("Enter Magazine ID     : ");
+        String id = scanner.nextLine().trim();
+        System.out.println("Enter Title           : ");
+        String title = scanner.nextLine().trim();
+        System.out.println("Enter Issue Number    : ");
+        String issue = scanner.nextLine().trim();
+        System.out.println("Enter Publisher       : ");
+        String publisher = scanner.nextLine().trim();
+        System.out.println("Magazine added: " + title + " | Issue: " + issue + " | Publisher: " + publisher);
+        System.out.println("Enter E to exit or any key to add another:");
+        if (!scanner.nextLine().equalsIgnoreCase("e")) addMagazineMenu();
+    }
+
+    static void listItemsMenu() {
+        libraryItemService.displayAllItems();
+        System.out.println("Enter E to exit or any key to refresh:");
+        if (!scanner.nextLine().equalsIgnoreCase("e")) listItemsMenu();
+    }
+
+    static void searchTitleMenu() {
+        System.out.println("Enter Title keyword to search:");
+        String keyword = scanner.nextLine().trim();
+        var results = libraryItemService.findItemsByTitle(keyword);
+        if (results.isEmpty()) {
+            System.out.println("No items found matching: " + keyword);
+        } else {
+            System.out.println("Found " + results.size() + " result(s):");
+            for (var item : results) {
+                System.out.println("  - [" + item.getID() + "] " + item.getTittle());
+            }
+        }
+        System.out.println("Enter E to exit or any key to search again:");
+        if (!scanner.nextLine().equalsIgnoreCase("e")) searchTitleMenu();
+    }
+
+    static void addMemberMenu() {
+        System.out.println("Enter Member ID   : ");
+        String id = scanner.nextLine().trim();
+        System.out.println("Enter Name        : ");
+        String name = scanner.nextLine().trim();
+        System.out.println("Enter Street      : ");
+        String street = scanner.nextLine().trim();
+        System.out.println("Enter City        : ");
+        String city = scanner.nextLine().trim();
+        System.out.println("Enter Postal Code : ");
+        String postal = scanner.nextLine().trim();
+        memberServices.addMember(new Member(id, name, new Address(street, city, postal)));
+        System.out.println("Enter E to exit or any key to add another:");
+        if (!scanner.nextLine().equalsIgnoreCase("e")) addMemberMenu();
+    }
+
+    static void listMembersMenu() {
+        memberServices.displayAllMembers();
+        System.out.println("Enter E to exit or any key to refresh:");
+        if (!scanner.nextLine().equalsIgnoreCase("e")) listMembersMenu();
+    }
+
+    static void borrowItemMenu() {
+        borrowingServices.borrowItem();
+        System.out.println("Enter E to exit or any key to borrow another:");
+        if (!scanner.nextLine().equalsIgnoreCase("e")) borrowItemMenu();
+    }
+
+    static void returnItemMenu() {
+        borrowingServices.returnItem();
+        System.out.println("Enter E to exit or any key to return another:");
+        if (!scanner.nextLine().equalsIgnoreCase("e")) returnItemMenu();
+    }
 }
