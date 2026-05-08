@@ -25,7 +25,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // ── Sample Data ───────────────────────────────────────────
         libraryItemService.addItem(new Books("B001", "Clean Code",               true, scanner, "Robert C. Martin", "978-0132350884"));
         libraryItemService.addItem(new Books("B002", "The Pragmatic Programmer", true, scanner, "Andrew Hunt",       "978-0201616224"));
         libraryItemService.addItem(new Books("B003", "Design Patterns",          true, scanner, "Gang of Four",      "978-0201633610"));
@@ -172,4 +171,4 @@ public class Main {
             }
         }
     }
-}ld
+}
