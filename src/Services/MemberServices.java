@@ -32,8 +32,6 @@ public class MemberServices {
         return false;
     }
 
-    // ─── Find Member by ID ────────────────────────────────────────
-
     public Member findMemberById(String memberId) {
         for (Member member : library.getMembers()) {
             if (member.getID().equalsIgnoreCase(memberId)) {
