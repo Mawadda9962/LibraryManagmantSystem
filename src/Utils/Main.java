@@ -34,7 +34,6 @@ public class Main {
         memberServices.addMember(new Member("M002", "Fatima Al-Balushi",
                 new Address("45 Ruwi High St", "Ruwi", "112")));
 
-        // ── Main Menu Loop ────────────────────────────────────────
         System.out.println(MenuMessages.MAIN_MENU_MESSAGE);
         boolean mainMenuContinue = true;
 
