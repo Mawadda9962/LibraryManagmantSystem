@@ -25,14 +25,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        libraryItemService.addItem(new Books("B001", "Clean Code",               true, scanner, "Robert C. Martin", "978-0132350884"));
-        libraryItemService.addItem(new Books("B002", "The Pragmatic Programmer", true, scanner, "Andrew Hunt",       "978-0201616224"));
-        libraryItemService.addItem(new Books("B003", "Design Patterns",          true, scanner, "Gang of Four",      "978-0201633610"));
-
-        memberServices.addMember(new Member("M001", "Ahmed Al-Rashidi",
-                new Address("12 Sultan Qaboos St", "Muscat", "100")));
-        memberServices.addMember(new Member("M002", "Fatima Al-Balushi",
-                new Address("45 Ruwi High St", "Ruwi", "112")));
 
         System.out.println(MenuMessages.MAIN_MENU_MESSAGE);
         boolean mainMenuContinue = true;
@@ -72,8 +64,6 @@ public class Main {
                         String issue = scanner.nextLine().trim();
                         System.out.println("Enter Publisher       : ");
                         String publisher = scanner.nextLine().trim();
-                        // Magazine does not extend LibraryItems in your design.
-                        // Printed as confirmation until Magazine extends LibraryItems.
                         System.out.println("Magazine added: " + title + " | Issue: " + issue + " | Publisher: " + publisher);
                         System.out.println("Enter E to exit or any key to add another:");
                         if (scanner.nextLine().equalsIgnoreCase("e")) second = false;
